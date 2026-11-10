@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <!----LUCAS BERNARDO DA SILVA & PIETRO TEIXEIRA---->
+  <!--Ao mui nobre e excelso regente do saber, Professor Cassio,
+
+Nós, vosso humilde e dedicado discípulo, vimos por meio desta solene mensagem prostrar-nos perante vossa magnanimidade para suplicar vosso perdão real pela indevida e tardia entrega de nossa humilde oferenda acadêmica.
+
+Reconhecemos, com profundo pesar em nosso espírito, que a ousadia de submeter tal labor nos estertores do prazo preestabelecido fere a estrita ordem que rege vossa augusta corte de ensino.
+
+Rogamos humildemente que vossa clemência infinita releve tal afronta ao cronograma, aceitando este modesto fruto de nosso esforço como sinal de nosso respeito e submissão à vossa sabedoria.
+
+Que vossa benevolência reine soberana sobre este pequeno deslize.
+
+Com a mais alta estima e vassalagem,
+
+Lucas B. -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabalho - Tela de Carregamento Animada</title>
+  <link rel="stylesheet" href="transicao.css">
+</head>
+<body>
+
+  <button id="botao">butao</button>
+
+  <div id="tela">
+    <div class="emoji ida e1">🚀</div>
+    <div class="emoji ida e2">⚡</div>
+    <div class="emoji ida e3">🔥</div>
+    <div class="emoji ida e4">⭐</div>
+    <div class="emoji ida e5">🎵</div>
+    <div class="emoji ida e6">🍕</div>
+    <div class="emoji ida e7">👾</div>
+    <div class="emoji ida e8">🎉</div>
+    <div class="emoji ida e9">💥</div>
+    <div class="emoji ida e10">🎈</div>
+
+    <div class="emoji volta e11">🌮</div>
+    <div class="emoji volta e12">🐱</div>
+    <div class="emoji volta e13">🌈</div>
+    <div class="emoji volta e14">🤖</div>
+    <div class="emoji volta e15">🍦</div>
+    <div class="emoji volta e16">🛸</div>
+    <div class="emoji volta e17">🎨</div>
+    <div class="emoji volta e18">🎸</div>
+    <div class="emoji volta e19">💎</div>
+    <div class="emoji volta e20">🏆</div>
+
+    <div class="texto ida t1">PARA DE JOGAR MATIAS</div>
+    <div class="texto volta t2">Never Gonna Give You Up!</div>
+    <div class="texto ida t3">PIETRO+LÓGICA</div>
+    <div class="texto volta t4">JOÃO LINDO</div>
+    <div class="texto ida t5">CAPPUCINO</div>
+    <div class="texto volta t6">"NÃO É OQUE FALO, MAS OQUE FAÇO" - ORNELLAS 2026</div>
+    <div class="texto ida t7">COMO TIRA DA CAIXA ALTA</div>
+    <div class="texto volta t8">IF</div>
+    <div class="texto ida t9">ORNELLAS - NÃO DÊ NEM CAPPUCINO</div>
+    <div class="texto volta t10">RESENHA</div>
+
+    <div class="meme">
+      <img src="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" alt="Never Gonna Give You Up">
+    </div>
+
+    <div class="caixa">
+      <div class="barra" id="bar"></div>
+    </div>
+    <div class="txt" id="msg">Carregando... 0%</div>
+  </div>
+
+  <audio id="som" src="Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster).mp3"></audio>
+
+  <script>
+    const btn = document.getElementById('botao');
+    const tel = document.getElementById('tela');
+    const bar = document.getElementById('bar');
+    const msg = document.getElementById('msg');
+    const som = document.getElementById('som');
+
+    btn.addEventListener('click', () => {
+      btn.style.display = 'none';
+      tel.style.display = 'flex';
+      
+      let p = 0;
+      bar.style.width = '0%';
+      msg.textContent = 'Carregando... 0%';
+
+      som.currentTime = 0;
+      som.play().catch(() => {});
+
+      const t = setInterval(() => {
+        p += 2;
+        bar.style.width = p + '%';
+        msg.textContent = `Carregando... ${p}%`;
+
+        if (p >= 200) {
+          clearInterval(t);
+          setTimeout(() => {
+            som.pause();
+            tel.style.display = 'none';
+            btn.style.display = 'block';
+          }, 500);
+        }
+      }, 100);
+    });
+  </script>
+
+</body>
+</html>
